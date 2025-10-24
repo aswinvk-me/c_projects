@@ -8,7 +8,7 @@ void gameplay(char name1[], char name2[])
 
     do
     {
-        printf("Player 1 >>>>\t");
+        printf("Player 1 >>>>\t", "name1");
         scanf("%c", &choice1);
         if(choice1 <= '9' && choice1 > '0')
         {

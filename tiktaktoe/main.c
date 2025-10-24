@@ -12,4 +12,4 @@ int main()
     printf("Enter player 2 name: ");
     scanf("\n%[^\n]", name2);
     gameplay(name1, name2);
-}
+}    

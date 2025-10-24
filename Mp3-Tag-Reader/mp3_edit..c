@@ -1,6 +1,4 @@
-/*
-Name: Aswin chandra M A
-*/
+//Name: Aswin chandra M A
 
 #include "mp3_header.h"
 void edit_mp3(char song[], char tag[], char content[])
@@ -26,9 +24,11 @@ void edit_mp3(char song[], char tag[], char content[])
     strcpy(tagEdit, "COMM");
     else
     {
-    printf("invalid tag option\n");
+    printf("|                        Invalid tag option                             |\n");
     return;
     } 
+     printf("%s\t>>>\tEditing %s\n", song, tagEdit);
+    printf("=========================================================================\n");
 
     //create a temporary file
     FILE * tp = fopen("temp.mp3", "wb");
@@ -37,10 +37,10 @@ void edit_mp3(char song[], char tag[], char content[])
     FILE * fp = fopen(song, "rb");
     if(fp == NULL)
     {
-        printf("File not found in the folder!!\n");
+        printf("                     File not found in the folder!!                     |\n");
+        printf("=========================================================================\n");
         return;
     }
-
     char id3[10];
     //copy header(10bytes) from original to temperory file 
 	fread(id3, (sizeof(id3)), 1, fp);
@@ -80,15 +80,16 @@ void edit_mp3(char song[], char tag[], char content[])
             fread(&size,4,1,fp);
             fwrite(&size,4,1,tp);
             size=convert(size);
+
             char flag[2];
             fread(flag,2,1,fp);
             fwrite(flag,2,1,tp);
+
             char content2[size];
             fread(content2,size,1,fp);
             fwrite(content2,size,1,tp);
         }
     }
-
     char buffer[1];
     //copy all the remaining bytes as it is one by one
     while(fread(buffer, 1, (sizeof(buffer)), fp))
@@ -97,9 +98,10 @@ void edit_mp3(char song[], char tag[], char content[])
     }
     fclose(fp);
     fclose(tp);
-
     //remove the original file and rename edited file to original
     remove(song);
     rename("temp.mp3",song);
-    printf("File edited sucesfully\n");
+    printf("          ####           File edited sucesfully           ###\n");
+    printf("=========================================================================\n");
+    printf("#########################################################################\n");
 }
