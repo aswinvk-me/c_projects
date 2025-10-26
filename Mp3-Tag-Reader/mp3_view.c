@@ -30,7 +30,8 @@ void view_mp3(char song[])
 
 	if(strcmp(id3, "ID3") ==0)
 	{
-		printf("Mp3 :)\n");
+		printf("%s\to|-_-|o\n", song);
+		printf(".........................................................................\n");
 	}
 	else
 	{

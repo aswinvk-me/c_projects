@@ -1,9 +1,12 @@
 /*
  * Name: Aswin chandra M A
- * Date: 15/10/2025*/
+ * Date: 15/10/2025
+ * Description: mp3 tag reader for id3v2.3
+ */
 #include "mp3_header.h"
 int main(int argc, char *argv[])
 {
+	//if no arguments found
 	if(argc < 2)
 	{
 		printf("#########################################################################\n");
@@ -13,7 +16,7 @@ int main(int argc, char *argv[])
 		help_mp3();
 		return 0;
 	}
-	
+	//view function
 	if(strcmp(argv[1], "-v") == 0)
 	{
 		printf("#########################################################################\n");
@@ -22,6 +25,7 @@ int main(int argc, char *argv[])
 		printf("=========================================================================\n");
 		view_mp3(argv[2]);
 	}
+	//edit function
 	else if(strcmp(argv[1], "-e") == 0)
 	{
 		printf("#########################################################################\n");
@@ -30,6 +34,7 @@ int main(int argc, char *argv[])
 		printf("=========================================================================\n");
 		edit_mp3(argv[2], argv[3], argv[4]);
 	}
+	//help function
 	else if(strcmp(argv[1], "--help") == 0)
 	{
 		printf("#########################################################################\n");
@@ -37,6 +42,16 @@ int main(int argc, char *argv[])
 		printf("    [USAGE]   ||        MP3 TAG READER AND EDITOR       ||       ID3 v2.3\n");
 		printf("=========================================================================\n");
 		help_mp3();
+	}
+	// if not correct arguments 
+	else
+	{
+		printf("#########################################################################\n");
+		printf("=========================================================================\n");
+		printf("                     Error: Invalid argument!!\n");
+		printf("-------------------------------------------------------------------------\n");
+		help_mp3();
+		return 0;
 	}
 		
 }
