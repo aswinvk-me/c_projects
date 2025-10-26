@@ -101,7 +101,7 @@ void edit_mp3(char song[], char tag[], char content[])
     //remove the original file and rename edited file to original
     remove(song);
     rename("temp.mp3",song);
-    printf("          ####           File edited sucesfully           ###\n");
+    printf("          ####           File edited succesfully           ###\n");
     printf("=========================================================================\n");
     printf("#########################################################################\n");
 }
